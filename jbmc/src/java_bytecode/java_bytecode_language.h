@@ -72,6 +72,12 @@ class java_bytecode_languaget:public languaget
 {
 public:
   virtual void get_language_options(const cmdlinet &) override;
+  virtual void set_simple_language_options(const std::string &);
+
+  java_class_loadert &get_class_loader()
+  {
+    return java_class_loader;
+  }
 
   virtual bool preprocess(
     std::istream &instream,

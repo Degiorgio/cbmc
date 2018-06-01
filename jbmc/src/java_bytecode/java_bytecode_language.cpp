@@ -38,6 +38,19 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include "expr2java.h"
 
+void java_bytecode_languaget::set_simple_language_options(const std::string &filter)
+{
+  java_class_loader.set_use_core_models(false);
+  assume_inputs_non_null = true;
+  string_refinement_enabled = false;
+  throw_runtime_exceptions = false;
+  object_factory_parameters.string_printable = false;
+  threading_support = false;
+  java_cp_include_files = ".*";
+  lazy_methods_mode = LAZY_METHODS_MODE_EAGER;
+  language_options_initialized = true;
+}
+
 /// Consume options that are java bytecode specific.
 /// \param Command:line options
 /// \return None
